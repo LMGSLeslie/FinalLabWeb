@@ -1,0 +1,34 @@
+<hr>
+<form [formGroup]="entradaBlog" (ngSubmit)="guardar()">
+  <div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+        <input class="form-control" id="inputNombre" type="text" placeholder="Nombre" formControlName="nombre" pattern=".{5,}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Entrada</label>
+      <div class="col-8">
+        <textarea class="form-control" type="textarea" rows  ="10" placeholder="Entrada" formControlName="entrada" minlength="30">
+        </textarea>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <button class="btn" type="submit"> Publicar </button>
+    </div>
+  </div>
+</form>
+<hr>
+<div class="card">
+  <div class="col-11" *ngFor="let entry of blogEntries">
+    <hr>
+    <h2>{{entry.nombre}}</h2>
+    <label>{{entry.fecha | date:'medium'}}</label>
+    <h5>{{entry.entrada}}</h5>
+    <hr>
+  </div>
+</div>

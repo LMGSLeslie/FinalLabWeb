@@ -9,19 +9,19 @@ import { ConsolasService, Consola } from '../../servicios/consolas.service';
 })
 export class JuegoComponent implements OnInit {
 
-  juego:any;
-  idConsola:string;
-  idJuego:string;
+  juego: any;
+  idConsola: string;
+  idJuego: string;
 
-  constructor(private activatedRoute:ActivatedRoute,
-              private consolasService:ConsolasService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private consolasService: ConsolasService) {
     this.activatedRoute.params.subscribe(params => {
       console.log(params['idConsola']);
       console.log(params['idJuego']);
       this.idConsola = params['idConsola'];
       this.idJuego = params['idJuego'];
-      this.juego = this.consolasService.obtieneJuego(this.idConsola, this.idJuego);      
-    })
+      this.juego = this.consolasService.obtieneJuego(this.idConsola, this.idJuego);
+    });
   }
 
   ngOnInit() {

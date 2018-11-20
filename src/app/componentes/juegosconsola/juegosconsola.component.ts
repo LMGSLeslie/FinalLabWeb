@@ -9,15 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class JuegosconsolaComponent implements OnInit {
 
-  juegos:any = [];
-  idConsola:string;
+  juegos: any = [];
+  idConsola: string;
 
-  constructor( private consolasService:ConsolasService,
-               private activatedRoute:ActivatedRoute) {
+  constructor( private consolasService: ConsolasService,
+               private activatedRoute: ActivatedRoute) {
      this.activatedRoute.params.subscribe(params => {
        console.log(params['id']);
        this.idConsola = params['id'];
-     })
+     });
   }
 
   ngOnInit() {

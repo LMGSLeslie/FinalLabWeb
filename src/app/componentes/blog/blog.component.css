@@ -1,0 +1,12 @@
+input:invalid{
+    border-color: red;
+}
+
+textarea:invalid{
+    border-color: red;
+}
+
+button{
+    border-color: #83b5fe;
+    background-color: white;
+}

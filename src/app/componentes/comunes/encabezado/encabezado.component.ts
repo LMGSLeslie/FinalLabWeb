@@ -8,14 +8,19 @@ import { Router } from '@angular/router';
 })
 export class EncabezadoComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  buscarConsolas(palabras:string){
+  buscarConsolas(palabras: string) {
     console.log(palabras);
     this.router.navigate(['/resconsolas', palabras]);
+  }
+
+  buscarJuegos(palabras: string) {
+    console.log(palabras);
+    this.router.navigate(['/resjuegos', palabras]);
   }
 
 }

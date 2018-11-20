@@ -3,24 +3,24 @@ import { ActivatedRoute } from '@angular/router';
 import { ConsolasService } from '../../../servicios/consolas.service';
 
 @Component({
-  selector: 'app-resconsolas',
-  templateUrl: './resconsolas.component.html',
-  styleUrls: ['./resconsolas.component.css']
+  selector: 'app-resjuegos',
+  templateUrl: './resjuegos.component.html',
+  styleUrls: ['./resjuegos.component.css']
 })
-export class ResconsolasComponent implements OnInit {
+export class ResjuegosComponent implements OnInit {
 
-  consolas: any[] = [];
+  juegos: any[] = [];
   palabrasBusqueda: string;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private consolasService: ConsolasService) {}
+    private consolasService: ConsolasService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       console.log(params['palabrasBusqueda']);
       this.palabrasBusqueda = params['palabrasBusqueda'];
-      this.consolas = this.consolasService.buscarConsolas(this.palabrasBusqueda);
-      console.log(this.consolas);
+      this.juegos = this.consolasService.buscarJuegos(this.palabrasBusqueda);
+      console.log(this.juegos);
     });
   }
 
