@@ -16,12 +16,12 @@ export class JuegosconsolaComponent implements OnInit {
                private activatedRoute: ActivatedRoute) {
      this.activatedRoute.params.subscribe(params => {
        console.log(params['id']);
-       this.idConsola = params['id'];
+       // this.idConsola = params['id'];
      });
   }
 
   ngOnInit() {
-    this.juegos = this.consolasService.obtieneJuegosConsola(this.idConsola);
+    // this.juegos = this.consolasService.obtieneJuegosConsola(this.idConsola);
   }
 
 }

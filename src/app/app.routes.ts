@@ -20,7 +20,7 @@ const APP_ROUTES: Routes = [
   { path: 'consolas', component: ConsolasComponent },
 
   // { path: 'consolas/infoconsola/id', component: InfoconsolaComponent }, cambia por:
-  { path: 'infoconsola/:id', component: InfoconsolaComponent },
+  { path: 'infoconsola/:nombre', component: InfoconsolaComponent },
 
   { path: 'juegosconsola/:id', component: JuegosconsolaComponent },
   { path: 'juego/:idConsola/:idJuego', component: JuegoComponent },

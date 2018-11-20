@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsolasService, Consola } from '../../servicios/consolas.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-consolas',
@@ -8,12 +9,20 @@ import { ConsolasService, Consola } from '../../servicios/consolas.service';
 })
 export class ConsolasComponent implements OnInit {
 
-  consolas:Consola[] = [];
+  consolas;
 
-  constructor( private consolasService:ConsolasService ) { }
+  constructor( private consolasService: ConsolasService ) {
+    this.consolas = new Promise((resolve, reject) => {
+      this.consolasService.obtieneConsolas().subscribe(
+        consolas => {
+          console.log(consolas);
+          resolve(consolas);
+        }
+      );
+    });
+  }
 
   ngOnInit() {
-    this.consolas = this.consolasService.obtieneConsolas();
     console.log(this.consolas);
   }
 

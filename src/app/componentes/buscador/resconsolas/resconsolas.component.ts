@@ -19,7 +19,7 @@ export class ResconsolasComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       console.log(params['palabrasBusqueda']);
       this.palabrasBusqueda = params['palabrasBusqueda'];
-      this.consolas = this.consolasService.buscarConsolas(this.palabrasBusqueda);
+      // this.consolas = this.consolasService.buscarConsolas(this.palabrasBusqueda);
       console.log(this.consolas);
     });
   }

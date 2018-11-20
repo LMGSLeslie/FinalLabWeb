@@ -19,7 +19,7 @@ export class ResjuegosComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       console.log(params['palabrasBusqueda']);
       this.palabrasBusqueda = params['palabrasBusqueda'];
-      this.juegos = this.consolasService.buscarJuegos(this.palabrasBusqueda);
+      this.juegos = []; // this.consolasService.buscarJuegos(this.palabrasBusqueda);
       console.log(this.juegos);
     });
   }

@@ -1,7 +1,9 @@
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">{{consola.nombre}}</h1>
-    <p class="lead">{{consola.caracteristicas}}</p>
+  <div *ngFor="let cons of consola|async;">
+    <div class="container">
+        <h1 class="display-4">{{cons.nombre}}</h1>
+        <p class="lead">{{cons.ficha_tecnica}}</p>
+      </div>
+    <a [routerLink]="['/juegosconsola',consola.nombre]" class="btn btn-primary">Juegos</a>
   </div>
-  <a [routerLink]="['/juegosconsola',idConsola]" class="btn btn-primary">Juegos</a>
 </div>
