@@ -18,7 +18,7 @@ export class ConsolasService {
   }
 
    obtieneConsola(nombre: string) {
-     return this.httpClient.get(this.url + 'plataforma/:idPlataforma' + nombre);
+     return this.httpClient.get(this.url + 'plataforma/' + nombre);
    }
 
 //   obtieneJuegosConsola(idConsola: string) {

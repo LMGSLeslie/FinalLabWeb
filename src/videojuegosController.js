@@ -21,22 +21,23 @@ exports.obtener_plataformas = function(req,res){
 };
 
 exports.obtener_plataforma_id = function(req, res) {
-    MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
-        if (err) {
-            throw err;
-        }
-        const db = mdbclient.db(dbName);
-        var idPlataforma = req.params.idPlataforma;
-        db.collection("plataforma").find({_id: parseInt(idPlataforma)}, {_id:0}).toArray(function(err, result) {
-            if (err) {
-                throw err;
-            }
-            console.log(idPlataforma);
-            console.log("Resultados Obtenidos: " + result.length);
-            mdbclient.close();
-            res.end(JSON.stringify(result));
-        });
+  MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
+    if (err){
+      throw err;
+    }
+    const db = mdbclient.db(dbName);
+    var idPlataforma = req.params.idPlataforma;
+    //Solamente obtenemos el nombre y la matricula
+    console.log(idPlataforma);
+    db.collection("plataforma").find({nombre:idPlataforma}).project({_id:0}).toArray(function(err, result){
+      if (err){
+        throw err;
+      }
+      console.log("Resultados Obtenidos: " + result.length);
+      mdbclient.close();
+      res.end( JSON.stringify(result));
     });
+  });
 };
 
 exports.obtener_plataformas_palabra = function(req, res) {
