@@ -29,7 +29,7 @@ exports.obtener_plataforma_id = function(req, res) {
     var idPlataforma = req.params.idPlataforma;
     //Solamente obtenemos el nombre y la matricula
     console.log(idPlataforma);
-    db.collection("plataforma").find({nombre:idPlataforma}).project({_id:0}).toArray(function(err, result){
+    db.collection("plataforma").find({nombre:idPlataforma}).toArray(function(err, result){
       if (err){
         throw err;
       }
@@ -102,7 +102,7 @@ exports.obtener_juego_plataforma = function(req, res) {
         const db = mdbclient.db(dbName);
         var idPlataforma = req.params.idPlataforma;
         var idJuego = req.params.idJuego;
-        db.collection("juego").find({_id: parseInt(idJuego), id_plataforma: parseInt(idPlataforma)}, {_id: 0, id_plataforma: 0}).toArray(function(err, result) {
+        db.collection("juego").find({nombre: idJuego, id_plataforma: parseInt(idPlataforma)}).toArray(function(err, result) {
             if (err) {
                 throw err;
             }

@@ -21,43 +21,22 @@ export class ConsolasService {
      return this.httpClient.get(this.url + 'plataforma/' + nombre);
    }
 
-//   obtieneJuegosConsola(idConsola: string) {
-//     return this.consolas[idConsola].juegos;
-//   }
+  obtieneJuegosConsola(idConsola: string) {
+    console.log(idConsola);
+    return this.httpClient.get(this.url + 'plataforma/' + idConsola + '/juegos');
+   }
 
-//   obtieneJuego(idConsola: string, idJuego: string) {
-//     return this.consolas[idConsola].juegos[idJuego];
-//   }
+   obtieneJuego(idConsola: string, idJuego: string) {
+     return this.httpClient.get(this.url + 'plataforma/' + idConsola + '/juego/' + idJuego);
+   }
 
-//   buscarConsolas(palabras: string): Consola[] {
-//     const resultadoConsolas: Consola[] = [];
-//     palabras = palabras.toLowerCase();
-//     for (const consola of this.consolas) {
-//       const nombreConsola = consola.nombre.toLowerCase();
-//       if (nombreConsola.indexOf(palabras) >= 0) {
-//         resultadoConsolas.push(consola);
-//       }
-//     }
-//     return resultadoConsolas;
-//   }
+  buscarConsolas(palabras: string): Consola[] {
+    return this.httpClient.get(this.url + 'plataforma/busqueda/' + palabras);
+  }
 
-//   buscarJuegos(palabras: string): Juego[] {
-//     const resultadoJuegos: Juego[] = [];
-//     palabras = palabras.toLowerCase();
-//     for (let i = 0; i < this.consolas.length; i++) {
-//       const consola = this.consolas[i];
-//       for (let j = 0; j < consola.juegos.length; j++) {
-//         const juego = consola.juegos[j];
-//         const nombreJuego = juego.nombre.toLowerCase();
-//         if (nombreJuego.indexOf(palabras) >= 0) {
-//           juego.consolaId = i;
-//           juego.Id = j;
-//           resultadoJuegos.push(juego);
-//         }
-//       }
-//     }
-//     return resultadoJuegos;
-//   }
+  buscarJuegos(palabras: string): Juego[] {
+    return this.httpClient.get(this.url + 'juegos/busqueda/' + palabras);
+  }
 
 }
 

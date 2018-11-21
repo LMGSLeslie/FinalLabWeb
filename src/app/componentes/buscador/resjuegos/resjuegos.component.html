@@ -1,14 +1,14 @@
 <h1>Tu búsqueda: <small>{{ palabrasBusqueda }}</small></h1>
 <hr>
 <div class="row">
-  <div class="card" style="width: 18rem;" *ngFor="let juego of juegos; let i = index">
-    <img class="card-img-top" [src]="juego.imagen" [alt]="juego.nombre">
+  <div class="card" style="width: 18rem;" *ngFor="let juego of juegos|async; let i = index">
+    <img class="card-img-top" [src]="juego.portada" [alt]="juego.nombre">
     <div class="card-body">
       <h5 class="card-title">{{juego.nombre}}</h5>
       <!-- Utilizamos '/infoconsola' en lugar de 'infoconsola' para evitar que en el
       archivo 'app.routes.ts' se tenga que declarar como 'consolas/infoconsola/:id' de
       tal forma que la URL quedaría como http://localhost:4200/infoconsola/0 -->
-      <a [routerLink]="['/juego',juego.consolaId, juego.Id]" class="btn btn-primary">Información</a>
+      <a [routerLink]="['/juego',juego.id_plataforma, juego.nombre]" class="btn btn-primary">Información</a>
     </div>
   </div>
 </div>
