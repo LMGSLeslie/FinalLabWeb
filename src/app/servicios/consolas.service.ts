@@ -30,11 +30,11 @@ export class ConsolasService {
      return this.httpClient.get(this.url + 'plataforma/' + idConsola + '/juego/' + idJuego);
    }
 
-  buscarConsolas(palabras: string): Consola[] {
+  buscarConsolas(palabras: string) {
     return this.httpClient.get(this.url + 'plataforma/busqueda/' + palabras);
   }
 
-  buscarJuegos(palabras: string): Juego[] {
+  buscarJuegos(palabras: string) {
     return this.httpClient.get(this.url + 'juegos/busqueda/' + palabras);
   }
 

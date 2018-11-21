@@ -9,7 +9,7 @@ import { ConsolasService } from '../../../servicios/consolas.service';
 })
 export class ResjuegosComponent implements OnInit {
 
-  juegos: any[] = [];
+  juegos;
   palabrasBusqueda: string;
 
   constructor(private activatedRoute: ActivatedRoute,
