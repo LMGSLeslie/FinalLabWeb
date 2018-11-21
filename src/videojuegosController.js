@@ -3,6 +3,23 @@ const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017";
 const dbName = 'portal_videojuegos';
 
+exports.obtener_plataformas = function(req,res){
+    MongoClient.connect(url,{useNewUrlParser:true},function(err,mdbclient){
+        if(err){
+            throw err;
+        }
+        const db = mdbclient.db(dbName);
+        db.collection("plataforma").find({}).toArray(function(err,result){
+            if (err){
+                throw err;
+            }
+            console.log("Consulta ejecutada...");
+            mdbclient.close();
+            res.end(JSON.stringify(result));
+        });
+    });
+};
+
 exports.obtener_plataforma_id = function(req, res) {
     MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
         if (err) {

@@ -1,6 +1,8 @@
 'use strict';
 module.exports = function(app) {
   var collections = require('./videojuegosController');
+  app.route('/plataforma')
+  .get(collections.obtener_plataformas);
   app.route('/plataforma/:idPlataforma')
   .get(collections.obtener_plataforma_id);
   app.route('/plataforma/busqueda/:palabraClave')

@@ -11,7 +11,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
-var routes = require('./coleccionVideojuegosRoutes');
+var routes = require('./videojuegosRoutes');
 routes(app);
 app.listen(port);
 console.log('Servidor escuchando en puerto: ' + port);

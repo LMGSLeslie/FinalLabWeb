@@ -14,11 +14,11 @@ export class ConsolasService {
   }
 
   obtieneConsolas() {
-    return this.httpClient.get(this.url + 'plataformas');
+    return this.httpClient.get(this.url + 'plataforma');
   }
 
    obtieneConsola(nombre: string) {
-     return this.httpClient.get(this.url + 'plataformas/' + nombre);
+     return this.httpClient.get(this.url + 'plataforma/:idPlataforma' + nombre);
    }
 
 //   obtieneJuegosConsola(idConsola: string) {

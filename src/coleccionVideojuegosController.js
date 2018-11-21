@@ -1,7 +1,7 @@
 'use strict';
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017";
-const dbName = 'consolas';
+const dbName = 'portal_videojuegos';
 
 exports.obtener_plataformas = function(req,res){
     MongoClient.connect(url,{useNewUrlParser:true},function(err,mdbclient){
@@ -9,7 +9,7 @@ exports.obtener_plataformas = function(req,res){
             throw err;
         }
         const db = mdbclient.db(dbName);
-        db.collection("consolas").find({}).toArray(function(err,result){
+        db.collection("plataforma").find({}).toArray(function(err,result){
             if (err){
                 throw err;
             }
