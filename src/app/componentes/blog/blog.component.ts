@@ -18,7 +18,7 @@ export class BlogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.blogEntries = this.blogService.getBlogEntries();
+    this.blogEntries = []; // this.blogService.getBlogEntries();
 
     this.entradaBlog = new FormGroup({
       'nombre': new FormControl(),
@@ -32,8 +32,8 @@ export class BlogComponent implements OnInit {
       this.hoy.toDateString();
       const data = this.entradaBlog.value;
       data.fecha = this.hoy;
-      this.blogService.postBlogEntry(data);
-      this.blogService.getBlogEntries();
+      // this.blogService.postBlogEntry(data);
+      // this.blogService.getBlogEntries();
       console.log(this.entradaBlog.value);
     }
   }

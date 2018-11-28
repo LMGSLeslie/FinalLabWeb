@@ -9,7 +9,7 @@ import { ConsolasService } from '../../../servicios/consolas.service';
 })
 export class ResconsolasComponent implements OnInit {
 
-  consolas: any[] = [];
+  consolas;
   palabrasBusqueda: string;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -18,8 +18,15 @@ export class ResconsolasComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       console.log(params['palabrasBusqueda']);
-      this.palabrasBusqueda = params['palabrasBusqueda'];
-      this.consolas = this.consolasService.buscarConsolas(this.palabrasBusqueda);
+      // this.consolas = this.consolasService.buscarConsolas(this.palabrasBusqueda);
+      this.consolas = new Promise((resolve, reject) => {
+        this.consolasService.buscarConsolas(params['palabrasBusqueda']).subscribe(
+          consolas => {
+            console.log(consolas);
+            resolve(consolas);
+          }
+        );
+      });
       console.log(this.consolas);
     });
   }

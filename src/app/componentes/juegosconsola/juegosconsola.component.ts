@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class JuegosconsolaComponent implements OnInit {
 
+  juego;
   juegos: any = [];
   idConsola: string;
 
@@ -17,11 +18,20 @@ export class JuegosconsolaComponent implements OnInit {
      this.activatedRoute.params.subscribe(params => {
        console.log(params['id']);
        this.idConsola = params['id'];
+       this.juego = new Promise((resolve, reject) => {
+         this.consolasService.obtieneJuegosConsola(params['id']).subscribe(
+           juego => {
+             // console.log(consola);
+             console.log(juego);
+             resolve(juego);
+           }
+         );
+       });
      });
   }
 
   ngOnInit() {
-    this.juegos = this.consolasService.obtieneJuegosConsola(this.idConsola);
+    // this.juegos = this.consolasService.obtieneJuegosConsola(this.idConsola);
   }
 
 }
