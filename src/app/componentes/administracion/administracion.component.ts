@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { ConsolasService } from '../../servicios/consolas.service';
+
 @Component({
   selector: 'app-administracion',
   templateUrl: './administracion.component.html',
@@ -7,11 +9,12 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 })
 export class AdministracionComponent implements OnInit {
   formulario:FormGroup;
-  constructor() {
+  constructor(public consolasService : ConsolasService) {
     this.formulario = new FormGroup({
       'nombre': new FormControl(''),
       'imagen': new FormControl(''),
       'ficha': new FormControl(''),
+      /*
       'juegos': new FormArray([
         new FormGroup({
           '_id': new FormControl(''),
@@ -26,6 +29,7 @@ export class AdministracionComponent implements OnInit {
           'nombre': new FormControl('')
         })
       ])
+      */
     })
   }
   get juegos(): FormArray {
@@ -35,5 +39,13 @@ export class AdministracionComponent implements OnInit {
   }
   guardar(){
     console.log(this.formulario.value);
+
+    new Promise( (resolve, reject) => {
+      this.consolasService.agregarPlataforma(this.formulario.value).subscribe(
+        plataformas => {
+          resolve()
+        }
+      )
+    })
   }
 }
