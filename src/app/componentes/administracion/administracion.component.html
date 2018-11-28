@@ -28,22 +28,30 @@
         formControlName="ficha">
       </div>
     </div>
-    <div formArrayName="materias">
+    <div formArrayName="juegos">
       <!-- Se requiere utilizar [formGroupName]="i" porque los elementos que contiene
       el arreglo son FromGroup. Con esto se está utilizando la referencia a dicho
       objeto -->
-      <div *ngFor="let materia of materias.controls; index as i" [formGroupName]="i">
+      <div *ngFor="let juego of juegos.controls; index as i" [formGroupName]="i">
         <div class="form-group row">
           <label class="col-2 col-form-label">Juego {{i + 1}}</label>
           <div class="col-8">
-            Clave: <input class="form-control"
-            type="text"
-            placeholder="Clave"
-            formControlName="_id">
-            Nombre: <input class="form-control"
+            Nombre <input class="form-control"
             type="text"
             placeholder="Nombre"
-            formControlName="nombre">
+            formControlName="nombreJuego">
+            Portada (URL) <input class="form-control"
+            type="text"
+            placeholder="Portada"
+            formControlName="portada">
+            Developer <input class="form-control"
+            type="text"
+            placeholder="Developer"
+            formControlName="developer">
+            Lanzamiento <input class="form-control"
+            type="text"
+            placeholder="Lanzamiento"
+            formControlName="lanzamiento">
           </div>
         </div>
       </div>

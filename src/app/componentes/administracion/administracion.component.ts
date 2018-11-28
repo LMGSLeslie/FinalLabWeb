@@ -12,7 +12,7 @@ export class AdministracionComponent implements OnInit {
       'nombre': new FormControl(''),
       'imagen': new FormControl(''),
       'ficha': new FormControl(''),
-      'materias': new FormArray([
+      'juegos': new FormArray([
         new FormGroup({
           '_id': new FormControl(''),
           'nombre': new FormControl('')
@@ -28,8 +28,8 @@ export class AdministracionComponent implements OnInit {
       ])
     })
   }
-  get materias(): FormArray {
-    return this.formulario.get('materias') as FormArray;
+  get juegos(): FormArray {
+    return this.formulario.get('juegos') as FormArray;
   }
   ngOnInit() {
   }
