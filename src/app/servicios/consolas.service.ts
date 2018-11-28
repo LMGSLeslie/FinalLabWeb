@@ -38,6 +38,12 @@ export class ConsolasService {
     return this.httpClient.get(this.url + 'juegos/busqueda/' + palabras);
   }
 
+  agregarPlataforma(plataforma: any) {
+    console.log(plataforma);
+    let servicioRest = 'http://localhost:8585/plataformas';
+    //return this.httpClient.post(servicioRest, plataforma, {responseType: 'text'});
+  }
+
 }
 
 export interface Consola {
