@@ -17,6 +17,7 @@ import { ConsolasService } from './servicios/consolas.service';
 import { ResconsolasComponent } from './componentes/buscador/resconsolas/resconsolas.component';
 import { ResjuegosComponent } from './componentes/buscador/resjuegos/resjuegos.component';
 import { BlogComponent } from './componentes/blog/blog.component';
+import { AdministracionComponent } from './componentes/administracion/administracion.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { BlogComponent } from './componentes/blog/blog.component';
     ResconsolasComponent,
     ResjuegosComponent,
     BlogComponent,
+    AdministracionComponent,
   ],
   imports: [
     BrowserModule,
