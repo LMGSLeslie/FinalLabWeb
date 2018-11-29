@@ -3,6 +3,7 @@ module.exports = function(app) {
     var coleccionVideojuegos = require('./coleccionVideojuegosController');
     app.route('/plataformas')
     .get(coleccionVideojuegos.obtener_plataformas);
+
     app.route('/plataformas/:nombre')
     .get(coleccionVideojuegos.obtener_plataforma_nombre);
     app.route('/plataformas/busqueda/:palabraClave')
@@ -14,5 +15,6 @@ module.exports = function(app) {
     app.route('/juegos/:nombreConsola/:idJuego')
     .get(coleccionVideojuegos.obtener_juego);
     app.route('/blogs')
-    .get(coleccionVideojuegos.obtener_blogs);
+    .get(coleccionVideojuegos.obtener_blogs)
+    .post(coleccionVideojuegos.agregar_blog);
 };

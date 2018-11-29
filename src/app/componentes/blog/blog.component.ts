@@ -1,6 +1,7 @@
 import { BlogService, BlogEntry } from './../../servicios/blog.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ConsolasService } from '../../servicios/consolas.service';
 
 @Component({
   selector: 'app-blog',
@@ -13,16 +14,21 @@ export class BlogComponent implements OnInit {
   hoy: Date;
   blogEntries: BlogEntry[];
 
-  constructor(
-    private blogService: BlogService
-  ) { }
+  constructor(private consolasService: ConsolasService) {
+    this.blogEntries = []; // this.blogService.getBlogEntries();
+
+    this.entradaBlog = new FormGroup({
+      'autor': new FormControl(''),
+      'texto': new FormControl('')
+    });
+   }
 
   ngOnInit() {
     this.blogEntries = []; // this.blogService.getBlogEntries();
 
     this.entradaBlog = new FormGroup({
-      'nombre': new FormControl(),
-      'entrada': new FormControl(),
+      'autor': new FormControl(),
+      'texto': new FormControl(),
     });
   }
 
@@ -35,6 +41,14 @@ export class BlogComponent implements OnInit {
       // this.blogService.postBlogEntry(data);
       // this.blogService.getBlogEntries();
       console.log(this.entradaBlog.value);
+
+      new Promise( (resolve, reject) => {
+        this.consolasService.agregarBlog(this.entradaBlog.value).subscribe(
+          blogs => {
+            resolve()
+          }
+        )
+      })
     }
   }
 }
