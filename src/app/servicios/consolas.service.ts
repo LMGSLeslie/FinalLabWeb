@@ -38,10 +38,14 @@ export class ConsolasService {
     return this.httpClient.get(this.url + 'juegos/busqueda/' + palabras);
   }
 
-  agregarPlataforma(plataforma: any): Observable<string> {
-    console.log(plataforma);
+  agregarPlataforma(plataformas: any) {
     const servicioRest = 'http://localhost:8585/plataformas';
-    return this.httpClient.post(servicioRest, plataforma, {responseType: 'text'});
+    return this.httpClient.post(servicioRest, plataformas, {responseType: 'text'});
+  }
+
+  agregarBlog(blog: any) {
+    const servicioRest = 'http://localhost:8585/blogs';
+    return this.httpClient.post(servicioRest, blog, {responseType: 'text'});
   }
 
 }

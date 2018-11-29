@@ -129,3 +129,25 @@ exports.obtener_blogs = function(req, res) {
         });
     });
 };
+
+exports.agregar_blog = function(req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
+        if (err){
+            throw err;
+        }
+        const db = mdbclient.db(dbName);
+
+        var newBlog = req.body;
+        console.log(newBlog);
+
+        db.collection("blog").insertOne(newBlog, function(err, result) {
+            if (err){
+                throw err;
+            }
+            console.log("Blog insertado");
+            mdbclient.close();
+        });
+
+        res.end();
+    });
+};
