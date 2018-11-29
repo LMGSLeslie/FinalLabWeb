@@ -39,12 +39,12 @@ export class ConsolasService {
   }
 
   agregarPlataforma(plataformas: any) {
-    let servicioRest = 'http://localhost:8585/plataformas';
+    const servicioRest = 'http://localhost:8585/plataformas';
     return this.httpClient.post(servicioRest, plataformas, {responseType: 'text'});
   }
 
   agregarBlog(blog: any) {
-    let servicioRest = 'http://localhost:8585/blogs';
+    const servicioRest = 'http://localhost:8585/blogs';
     return this.httpClient.post(servicioRest, blog, {responseType: 'text'});
   }
 
