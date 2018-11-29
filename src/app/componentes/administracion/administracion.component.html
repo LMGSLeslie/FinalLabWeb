@@ -1,69 +1,31 @@
 <hr>
-<form [formGroup]="formulario" (ngSubmit)="guardar()">
-  <div>
-    <div class="form-group row">
-      <label class="col-2 col-form-label">Nombre</label>
-      <div class="col-8">
-        <input class="form-control"
-        type="text"
-        placeholder="Nombre"
-        formControlName="nombre">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="col-2 col-form-label">Imagen (URL)</label>
-      <div class="col-8">
-        <input class="form-control"
-        type="text"
-        placeholder="Imagen"
-        formControlName="imagen">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="col-2 col-form-label">Ficha Técnica</label>
-      <div class="col-8">
-        <input class="form-control"
-        type="text"
-        placeholder="Ficha Técnica"
-        formControlName="ficha">
-      </div>
-    </div>
-    <div formArrayName="juegos">
-      <!-- Se requiere utilizar [formGroupName]="i" porque los elementos que contiene
-      el arreglo son FromGroup. Con esto se está utilizando la referencia a dicho
-      objeto -->
-      <div *ngFor="let juego of juegos.controls; index as i" [formGroupName]="i">
-        <div class="form-group row">
-          <label class="col-2 col-form-label">Juego {{i + 1}}</label>
-          <div class="col-8">
-            Nombre <input class="form-control"
-            type="text"
-            placeholder="Nombre"
-            formControlName="nombreJuego">
-            Portada (URL) <input class="form-control"
-            type="text"
-            placeholder="Portada"
-            formControlName="portada">
-            Developer <input class="form-control"
-            type="text"
-            placeholder="Developer"
-            formControlName="developer">
-            Lanzamiento <input class="form-control"
-            type="text"
-            placeholder="Lanzamiento"
-            formControlName="lanzamiento">
+  <h1>Guardar consola</h1>
+  <div class="row justif-content-center">
+    <div *ngIf="guardandoConsola" class="col-12">
+      <form [formGroup]="consola" (ngSubmit)="guardar()">
+        <input class="form-control" placeholder="Nombre" formControlName="nombre">
+        <br>
+        <input class="form-control" placeholder="URL de la imagen" formControlName="imagen">
+        <br>
+        <textarea class="form-control" placeholder="Ficha técinca" formControlName="ficha" rows="10"></textarea>
+        <br>
+        <div formArrayName="juegos">
+          <div *ngFor="let juego of juegos.controls; index as i" [formGroupName]="i">
+            <div class="form-group row">
+              <input class='form-control' placeholder="Nombre" formControlName="nombre">
+              <br>
+              <input class='form-control' placeholder="Imagen de portada" formControlName="portada">
+              <br>
+              <input class='form-control' placeholder="Developer" formControlName="developer">
+              <br>
+              <input class='form-control' placeholder="Lanzamiento" formControlName="lanzamiento">
+              <div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+        <button type="submit" class="btn btn-block"> Guardar </button>
+      </form>
     </div>
   </div>
-  <div class="form-group row">
-    <label class="col-2 col-form-label">&nbsp;</label>
-    <div class="input-group col-md-8">
-      <button type="submit" class="btn btn-outline-primary">
-        Guardar
-      </button>
-    </div>
-  </div>
-</form>
 <hr>

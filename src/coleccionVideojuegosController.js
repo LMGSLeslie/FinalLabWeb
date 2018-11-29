@@ -155,3 +155,44 @@ exports.obtener_blogs = function(req, res) {
         });
     });
 };
+
+exports.agregar_plataforma = function(req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
+        if (err){
+            throw err;
+        }
+        const db = mdbclient.db(dbName);
+        var plat = req.body;
+
+        db.collection("plataforma").insertOne(plat, function(err, result) {
+            if (err){
+                throw err;
+            }
+            console.log("Plat creada");
+            mdbclient.close();
+            
+        });
+        res.end();
+    });
+};
+
+exports.agregar_blog = function(req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, mdbclient) {
+        if (err){
+            throw err;
+        }
+        const db = mdbclient.db(dbName);
+        var blog = req.body;
+
+        db.collection("blogs").insertOne(blog, function(err, result) {
+            if (err){
+                throw err;
+            }
+            console.log("Blog creada");
+            mdbclient.close();
+            
+        });
+        res.end();
+    });
+};
+
