@@ -14,7 +14,7 @@ export class AdministracionComponent implements OnInit {
       'nombre': new FormControl(''),
       'imagen': new FormControl(''),
       'ficha': new FormControl(''),
-      /*
+
       'juegos': new FormArray([
         new FormGroup({
           '_id': new FormControl(''),
@@ -29,7 +29,7 @@ export class AdministracionComponent implements OnInit {
           'nombre': new FormControl('')
         })
       ])
-      */
+      
     })
   }
   get juegos(): FormArray {
