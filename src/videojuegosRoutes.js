@@ -14,5 +14,6 @@ module.exports = function(app) {
   app.route('/plataforma/:idPlataforma/juego/:idJuego')
   .get(collections.obtener_juego_plataforma);
   app.route('/blogs')
-  .get(collections.obtener_blogs);
+  .get(collections.obtener_blogs)
+  .post(collections.agregar_blog);
 };

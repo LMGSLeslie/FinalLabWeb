@@ -36,6 +36,8 @@ export class BlogComponent implements OnInit {
     if (this.entradaBlog.valid) {
       this.hoy = new Date();
       this.hoy.toDateString();
+      //console.log(this.entradaBlog.id.value);
+      //this.entradaBlog.id = parseInt(this.entradaBlog.id);
       const data = this.entradaBlog.value;
       data.fecha = this.hoy;
       // this.blogService.postBlogEntry(data);
